@@ -1,0 +1,25 @@
+class Solution {
+  public:
+    long long pairAndSum(vector<int> &arr) {
+        // code 
+        
+        int n = arr.size();
+        long long ans = 0;
+        
+        
+        for(int bit = 0; bit < 31; bit++) {
+            long long cnt = 0;
+            
+            for (int i = 0; i < n; i++) {
+                if (arr[i] & ( 1ll << bit)) {
+                    
+                cnt++;
+            }
+            
+            }
+            
+            ans += (cnt * (cnt - 1) / 2 ) * (1LL << bit);
+        }
+return ans;
+    }
+};
