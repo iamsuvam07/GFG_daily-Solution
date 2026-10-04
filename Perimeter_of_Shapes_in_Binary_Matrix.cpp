@@ -1,0 +1,31 @@
+class Solution {
+  public:
+    int findPerimeter(vector<vector<int>> &mat) {
+        // code here
+
+
+
+int n = mat.size();
+int m = mat[0].size();
+int perimeter = 0;
+
+int dr[] = {-1, 1, 0, 0};
+
+int dc[] = {0, 0, -1, 1};
+
+for ( int i =0 ; i < n; i++) {
+    for (int j = 0; j < m; j++) {
+        if ( mat[i][j] == 1) {
+            perimeter +=4;
+            
+            if ( i > 0 && mat[i - 1][j] == 1)
+            perimeter -= 2;
+            
+            if ( j > 0 && mat[i][j - 1] == 1)
+            perimeter -=2;
+        }
+    }
+}
+return perimeter;
+}
+};
